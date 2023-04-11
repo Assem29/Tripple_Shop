@@ -1,0 +1,71 @@
+@import '../../../styles/mixins.scss';
+
+.homeCategory {
+  margin: 100px 0;
+
+  .homeCategory__wrapper {
+    .homeCategory__head {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 20px;
+      background-color: var(--secondary-background);
+      margin-bottom: 10px;
+      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+      border-left: 4px solid var(--main-color);
+      &.ar {
+        border-left: unset;
+        border-right: 4px solid var(--main-color);
+      }
+      @include sm {
+        display: block;
+        overflow-x: scroll;
+      }
+
+      div {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        @include sm {
+          min-width: 500px;
+        }
+        span {
+          padding: 5px 20px;
+          cursor: pointer;
+          border-radius: 20px;
+          &.active {
+            border: 2px solid var(--main-color);
+          }
+        }
+      }
+    }
+
+    .homeCategory__products {
+      background-color: var(--secondary-background);
+      @include xs {
+        margin-left: 0;
+      }
+      &.ar {
+        margin-left: unset;
+      }
+    }
+  }
+
+  &.rounded {
+    .homeCategory__wrapper {
+      background-color: transparent;
+      .homeCategory__head {
+        border-radius: 30px !important;
+        background-color: var(--main-color);
+      }
+
+      .homeCategory__products {
+        margin: 10px 0 0 0;
+        padding: 0 30px;
+        background-color: transparent;
+        @include xs {
+          padding: 0;
+        }
+      }
+    }
+  }
+}
